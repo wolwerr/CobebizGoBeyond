@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Requests\ListagemProdutos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -45,5 +46,10 @@ Route::get('vtexService', 'ServicesAPIVtexController@listagemSearchVtex');
 
 
 //? Rotas Chilli Beans
-
 Route::get('chillibeans', 'ChilliBeansAPIController@listagemSearchVtex');
+
+//? Rota para cadastrar.
+Route::post('cadastrar-produtos','APIPessoasController@cadastraPessoa');
+
+//? ListagemProdutos
+Route::get('ListagemProdutos', 'ChilliBeansAPIController@listagemSearchVtex');

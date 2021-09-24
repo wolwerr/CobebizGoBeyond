@@ -2,27 +2,24 @@
 
 namespace App\Console\Commands;
 
-use App\Traits\PessoasTrait;
 use Illuminate\Console\Command;
 
-class CreateFakerDataInTablePessoasCommand extends Command
+class ListagemProdutos extends Command
 {
 
-    use PessoasTrait;
-
-    /**
+     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'faker:pessoas-create';
+    protected $signature = 'listagemProdutos';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Cria registros de pessoas no banco aleatoriamente.';
+    protected $description = 'Listar Produtos.';
 
     /**
      * Create a new command instance.

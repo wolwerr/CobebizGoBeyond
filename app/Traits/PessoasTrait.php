@@ -5,7 +5,7 @@ namespace App\Traits;
 use App\Models\Pessoas;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\ListagemPessoasResource;
-use Illuminate\Support\Facades\Log;
+
 
 trait PessoasTrait
 {

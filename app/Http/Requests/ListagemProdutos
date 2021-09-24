@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class ListagemProdutos extends FormRequest
+{
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'productId' => 'required|int|max:100',
+            'productName' => 'required|string|max:120|min:1',
+            'brand' => 'required|email'
+        ];
+    }
+}

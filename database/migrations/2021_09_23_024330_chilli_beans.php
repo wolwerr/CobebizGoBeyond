@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class ChilliBeans extends Migration
 {
-    protected $connection = 'mysql';
+
     /**
      * Run the migrations.
      *
@@ -23,7 +23,7 @@ class ChilliBeans extends Migration
         });
 
     }
-
+    protected $connection = 'mysql';
     /**
      * Reverse the migrations.
      *

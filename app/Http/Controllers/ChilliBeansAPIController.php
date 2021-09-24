@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\VtexSearchService;
+use Illuminate\Http\Request;
 
 
 class ChilliBeansAPIController extends Controller
@@ -24,4 +25,11 @@ class ChilliBeansAPIController extends Controller
 
     }
 
+    //* Route de POST Cadastro
+    public function cadastraProdutos(Request $request)
+    {
+        //? Método refatorado para a Trait PessoasTrait.
+        $result = $this->CreatePessoasTrait($request);
+        return Response($result, $result['status']);
+    }
 }
