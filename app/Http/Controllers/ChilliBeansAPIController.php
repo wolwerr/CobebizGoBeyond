@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\ProdutosTrait;
 use App\Services\VtexSearchService;
 use Illuminate\Http\Request;
 
@@ -25,11 +26,49 @@ class ChilliBeansAPIController extends Controller
 
     }
 
-    //* Route de POST Cadastro
-    public function cadastraProdutos(Request $request)
+    use ProdutosTrait;
+
+    protected $list = [];
+
+    //* Route de GET Listagem
+    public function listagemDeProdutos(Request $request)
     {
-        //? Método refatorado para a Trait PessoasTrait.
-        $result = $this->CreatePessoasTrait($request);
+        //? Método refatorado para a Trait ProdutosTrait.
+        $result = $this->ListagemDeProdutosTrait($request);
         return Response($result, $result['status']);
     }
+
+     //* Route de GET Listagem By Id
+    public function listagemDeProdutosById(int $produtoId)
+    {
+         //? Método refatorado para a Trait ProdutosTrait.
+        $result = $this->ListagemDeProdutosByIdTrait($produtoId);
+        return Response($result, $result['status']);
+    }
+
+    //* Route de POST Cadasrtro
+    public function cadastraProdutos(Request $request)
+    {
+        //? Método refatorado para a Trait ProdutosTrait.
+        $result = $this->CreateProdutosTrait($request);
+        return Response($result, $result['status']);
+    }
+
+    //* Route de PUT Atualizacao
+    public function atualizarProdutos(Request $request, int $produtoId)
+    {
+        //? Método refatorado para a Trait ProdutosTrait.
+        $result = $this->UpdateProdutosTrait($request, $produtoId);
+        return Response($result, $result['status']);
+    }
+
+    //* Route de DELETE Atualizacao
+    public function deleteProdutos(int $produtoId)
+    {
+        //? Método refatorado para a Trait ProdutosTrait.
+        $result = $this->DeleteProdutosTrait($produtoId);
+        return Response($result, $result['status']);
+    }
+
 }
+

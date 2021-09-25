@@ -13,12 +13,12 @@ class APIController extends Controller
             'name' => "Leonardo",
             'lastname' => "Ribeiro",
             "age" => 26,
-            "programming_language" => "PHP" 
+            "programming_language" => "PHP"
         ];
 
         return Response($response, 418);
     }
-    
+
     public function showAction(Request $request)
     {
 
@@ -36,14 +36,14 @@ class APIController extends Controller
         //? só chega aqui se estiver tudo ok.
 
         $request->nome = strtoupper($request->nome);
-        
+
         $response = [
             'nome' => $request->nome,
             'idade' => $request->idade,
             'cep' => $request->cep,
             'email' => $request->email
         ];
-    
+
         return Response($response, 200);
 
     }

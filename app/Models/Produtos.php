@@ -11,10 +11,13 @@ class Produtos extends Model
 
     protected $table = "vision";
 
-    protected $primaryKey = "productId";
+    public $timestamps = false;
+
+    protected $primaryKey = "produtoId";
 
     protected $fillable = [
-        'productName',
+        "produtoId",
+        'produtoNome',
         'brand'
 
     ];

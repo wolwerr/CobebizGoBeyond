@@ -49,7 +49,16 @@ Route::get('vtexService', 'ServicesAPIVtexController@listagemSearchVtex');
 Route::get('chillibeans', 'ChilliBeansAPIController@listagemSearchVtex');
 
 //? Rota para cadastrar.
-Route::post('cadastrar-produtos','APIPessoasController@cadastraPessoa');
+Route::post('cadastrar-produtos','ChilliBeansAPIController@cadastraProdutos');
 
 //? ListagemProdutos
-Route::get('ListagemProdutos', 'ChilliBeansAPIController@listagemSearchVtex');
+Route::get('listagem-produtos', 'ChilliBeansAPIController@listagemDeProdutos');
+
+//? Rota para listagem de produto por id.
+Route::get('listagem-produto/{produtoId}', 'ChilliBeansAPIControllerr@listagemDeProdutosById');
+
+//? Rota para atualizar.
+Route::put('atualizar-produto/{produtoId}','ChilliBeansAPIController@atualizarProduto');
+
+//? Rota para deletar.
+Route::delete('deletar-produto/{produtoId}','ChilliBeansAPIController@deleteProduto');

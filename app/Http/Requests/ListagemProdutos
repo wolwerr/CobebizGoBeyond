@@ -15,9 +15,9 @@ class ListagemProdutos extends FormRequest
     public function rules()
     {
         return [
-            'productId' => 'required|int|max:100',
-            'productName' => 'required|string|max:120|min:1',
-            'brand' => 'required|email'
+            'produtoId' => 'required|int',
+            'produtoName' => 'required|string|max:120|min:1',
+            'brand' => 'required|string'
         ];
     }
 }

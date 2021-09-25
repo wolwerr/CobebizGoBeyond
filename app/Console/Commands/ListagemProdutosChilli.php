@@ -12,14 +12,14 @@ class ListagemProdutos extends Command
      *
      * @var string
      */
-    protected $signature = 'listagemProdutos';
+    protected $signature = 'listagem-produtos';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Listar Produtos.';
+    protected $description = 'listar-produtos.';
 
     /**
      * Create a new command instance.
@@ -38,6 +38,6 @@ class ListagemProdutos extends Command
      */
     public function handle()
     {
-        $this->CommandMethodCreateRegistersFakerPessoas(100);
+        $this->CommandMethodCreateRegistersFakerProdutos(100);
     }
 }

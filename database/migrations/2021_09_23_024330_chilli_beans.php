@@ -16,14 +16,15 @@ class ChilliBeans extends Migration
     public function up()
     {
         Schema::create('vision', function (Blueprint $table) {
-            $table->integer('productId');
-            $table->string('productName', 120);
+            $table->integer('produtoId');
+            $table->string('produtoNome', 120);
             $table->string('brand', 100);
-            $table->timestamps();
+
         });
 
     }
-    protected $connection = 'mysql';
+
+
     /**
      * Reverse the migrations.
      *
@@ -33,4 +34,5 @@ class ChilliBeans extends Migration
     {
         Schema::dropIfExists('vision');
     }
+
 }
