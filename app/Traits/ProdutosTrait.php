@@ -12,7 +12,7 @@ trait ProdutosTrait
     {
 
         $validator = Validator::make($request->all(), [
-            'produtoId' => 'required|int',
+
             'produtoNome' => 'required|string|max:120|min:1',
             'brand' => 'required|string'
         ]);
@@ -28,7 +28,7 @@ trait ProdutosTrait
 
         try {
             $produtoId = Produtos::create([
-                'produtoId' => $request->produtoId,
+
                 'produtoNome' => $request->produtoNome,
                 'brand' => $request->brand
             ]);
@@ -63,7 +63,7 @@ trait ProdutosTrait
 
     public function ListagemDeProdutosByIdTrait(int $produtoId) : array
     {
-        $produtoId = Produtos::where(['prdoutoId' => $produtoId])->get();
+        $produtoId = Produtos::where(['produtoId' => $produtoId])->get();
 
 
         return [
@@ -95,7 +95,7 @@ trait ProdutosTrait
 
             $produtoId = Produtos::find($produtoId);
 
-            $produtoId->produtoId = $request->produtoId;
+
             $produtoId->produtoNome = $request->produtoNome;
             $produtoId->brand = $request->brand;
 

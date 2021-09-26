@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\ProdutosTrait;
 use App\Services\VtexSearchService;
 
 

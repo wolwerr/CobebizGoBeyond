@@ -16,7 +16,7 @@ class ChilliBeans extends Migration
     public function up()
     {
         Schema::create('vision', function (Blueprint $table) {
-            $table->integer('produtoId');
+            $table->integer('produtoId')->unsigned()->autoIncrement();
             $table->string('produtoNome', 120);
             $table->string('brand', 100);
 
