@@ -4,12 +4,14 @@
 
 Sistema para cadastro de pessoas e produtos, criado no curso Go Beyond BackEnd.
 
-Foi utilizada a linguagem PHP com framework Laravel e Banco de Dados SQL.
+Foi utilizada a linguagem PHP com framework Laravel, Docker e Banco de Dados SQL.
 
 <h2>Tecnologias:<h2/>
 <div style="display: inline_block"><br>
 <img align="center" alt="wolwerr-Java" height="70" width="90" src="https://i.imgur.com/eWcYQfi.png"> 
 <img align="center" alt="wolwerr-Java" height="90" width="90" src="https://i.imgur.com/qWHa1mL.png">
+<img align="center" alt="wolwerr-Java" height="90" width="90" src="https://i.imgur.com/G8JdM0k.png">
+<img align="center" alt="wolwerr-Java" height="90" width="90" src="https://i.imgur.com/BsbdHTN.png">
     
 <div/>
     
