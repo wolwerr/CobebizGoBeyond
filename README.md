@@ -1,10 +1,13 @@
 # CobebizGoBeyond
-<h1>Repositório para desafio da Corebiz</h1>
+
+<h1>Repositório para desafio do Go Beyond Corebiz - BackEnd</h1>
 
 <img src="https://i.imgur.com/fT0WbPL.jpg"/>
 
-Sistema para cadastro de pessoas e produtos, criado no curso Go Beyond Back End.
-Foi usada a linguagem PHP com Laravel e Banco de Dados SQL.
+
+Sistema para cadastro de pessoas e produtos, criado no curso Go Beyond BackEnd.
+
+Foi usada a linguagem PHP com framework Laravel e Banco de Dados SQL.
 
 
 
