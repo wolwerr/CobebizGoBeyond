@@ -35,3 +35,4 @@ Para ultilizar o pacote, basta digitar "php artisan insights [-v]"
 
 
 
+Criado por Leonardo Ribeiro (Corebiz) e acresentado mais funcionalidade por Ricardo Machado
