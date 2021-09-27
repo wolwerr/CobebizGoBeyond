@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Traits\ProdutosTrait;
+
 use App\Services\VtexSearchService;
 
 
@@ -24,5 +24,6 @@ class ServicesAPIVtexController extends Controller
         return $this->endpointSearch->searchServiceVtex("https://loja.chillibeans.com.br/api/catalog_system/pub/products/search/vermelho");
 
     }
+
 
 }
