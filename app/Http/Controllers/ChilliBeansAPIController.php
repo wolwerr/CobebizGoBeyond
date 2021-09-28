@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Traits\ProdutosTrait;
 use App\Services\VtexSearchService;
+use App\Traits\ProdutosTrait;
 use Illuminate\Http\Request;
 
 
@@ -70,6 +70,4 @@ class ChilliBeansAPIController extends Controller
         $result = $this->DeleteProdutosTrait($produtoId);
         return Response($result, $result['status']);
     }
-
 }
-

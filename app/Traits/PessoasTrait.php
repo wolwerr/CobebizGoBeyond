@@ -2,10 +2,9 @@
 
 namespace App\Traits;
 
+use App\Http\Resources\ListagemPessoasResource;
 use App\Models\Pessoas;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Resources\ListagemPessoasResource;
-
 
 trait PessoasTrait
 {
@@ -22,7 +21,7 @@ trait PessoasTrait
             return [
                 'status' => 406,
                 'data' => $validator->errors()
-                ];
+            ];
         }
 
         $request->name = strtoupper($request->name);
@@ -88,7 +87,7 @@ trait PessoasTrait
             return [
                 'status' => 406,
                 'data' => $validator->errors()
-                ];
+            ];
         }
 
         try {
@@ -115,7 +114,6 @@ trait PessoasTrait
         ];
 
     }
-
     public function DeletePessoasTrait(int $id) : array
     {
         $fieldsValidator = ['id' => $id];
@@ -128,7 +126,7 @@ trait PessoasTrait
             return [
                 'status' => 406,
                 'data' => $validator->errors()
-                ];
+            ];
         }
 
         $pessoa = Pessoas::where('id', $id)->first();
@@ -158,7 +156,6 @@ trait PessoasTrait
         ];
 
     }
-
     //! Métodos especiais para Commands.
 
     public function CommandMethodCleanTablePessoas() : void

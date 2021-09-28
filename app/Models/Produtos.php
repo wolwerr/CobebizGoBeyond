@@ -9,9 +9,9 @@ class Produtos extends Model
 {
     use HasFactory;
 
-    protected $table = "vision";
+    protected $timestamps = false;
 
-    public $timestamps = false;
+    protected $table = "vision";
 
     protected $primaryKey = "produtoId";
 

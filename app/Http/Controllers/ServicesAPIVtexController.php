@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Services\VtexSearchService;
-
 
 class ServicesAPIVtexController extends Controller
 {
-
     protected $endpointSearch;
 
     public function __construct()
