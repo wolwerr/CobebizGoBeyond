@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Requests\ListagemProdutos;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +47,7 @@ Route::get('vtexService', 'ServicesAPIVtexController@listagemSearchVtex');
 
 //? Rotas Chilli Beans
 Route::get('chillibeans', 'ChilliBeansAPIController@listagemSearchVtex');
+Route::get('pegarDadosApi', 'ServicesAPIVtexController@pegarDadosApi');
 
 //? Rota para cadastrar.
 Route::post('cadastrar-produtos','ChilliBeansAPIController@cadastraProdutos');
@@ -54,11 +55,11 @@ Route::post('cadastrar-produtos','ChilliBeansAPIController@cadastraProdutos');
 //? ListagemProdutos
 Route::get('listagem-produtos', 'ChilliBeansAPIController@listagemDeProdutos');
 
-//? Rota para listagem de produto por id.
-Route::get('listagem-produto/{produtoId}', 'ChilliBeansAPIControllerr@listagemDeProdutosById');
+//? Rota para listagem de produtos por id.
+Route::get('listagem-produtos/{produtoId}', 'ChilliBeansAPIControllerr@listagemDeProdutosById');
 
 //? Rota para atualizar.
-Route::put('atualizar-produto/{produtoId}','ChilliBeansAPIController@atualizarProduto');
+Route::put('atualizar-produto/{produtoId}','ChilliBeansAPIController@atualizarProdutos');
 
 //? Rota para deletar.
-Route::delete('deletar-produto/{produtoId}','ChilliBeansAPIController@deleteProduto');
+Route::delete('deletar-produto/{produtoId}','ChilliBeansAPIController@deleteProdutos');

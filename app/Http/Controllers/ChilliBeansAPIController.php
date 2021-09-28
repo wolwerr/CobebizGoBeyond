@@ -26,6 +26,7 @@ class ChilliBeansAPIController extends Controller
 
     }
 
+
     use ProdutosTrait;
 
     protected $list = [];
@@ -46,7 +47,7 @@ class ChilliBeansAPIController extends Controller
         return Response($result, $result['status']);
     }
 
-    //* Route de POST Cadasrtro
+    //* Route de POST Cadastro
     public function cadastraProdutos(Request $request)
     {
         //? Método refatorado para a Trait ProdutosTrait.

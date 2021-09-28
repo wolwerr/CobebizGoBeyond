@@ -16,7 +16,6 @@ class Produtos extends Model
     protected $primaryKey = "produtoId";
 
     protected $fillable = [
-        "produtoId",
         'produtoNome',
         'brand'
 

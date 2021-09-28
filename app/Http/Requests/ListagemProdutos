@@ -6,6 +6,15 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ListagemProdutos extends FormRequest
 {
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -15,7 +24,7 @@ class ListagemProdutos extends FormRequest
     public function rules()
     {
         return [
-            'produtoId' => 'required|int',
+
             'produtoName' => 'required|string|max:120|min:1',
             'brand' => 'required|string'
         ];
