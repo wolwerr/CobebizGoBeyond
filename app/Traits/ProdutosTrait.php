@@ -5,9 +5,13 @@ namespace App\Traits;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\ListagemProdutosResource;
 use App\Models\Produtos;
+use App\Services\RedisService;
 
 trait ProdutosTrait
 {
+
+    use RedisService;
+
     public function CreateProdutosTrait(object $request) : array
     {
 

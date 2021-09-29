@@ -47,7 +47,7 @@ Route::get('vtexService', 'ServicesAPIVtexController@listagemSearchVtex');
 
 //? Rotas Chilli Beans
 Route::get('chillibeans', 'ChilliBeansAPIController@listagemSearchVtex');
-Route::get('pegarDadosApi', 'ServicesAPIVtexController@pegarDadosApi');
+Route::post('gravarDadosApi', 'ServicesAPIVtexController@gravarDadosApi');
 
 //? Rota para cadastrar.
 Route::post('cadastrar-produtos','ChilliBeansAPIController@cadastraProdutos');
@@ -63,3 +63,10 @@ Route::put('atualizar-produto/{produtoId}','ChilliBeansAPIController@atualizarPr
 
 //? Rota para deletar.
 Route::delete('deletar-produto/{produtoId}','ChilliBeansAPIController@deleteProdutos');
+
+
+
+
+
+
+
