@@ -11,13 +11,21 @@ class VtexSearchService {
     public function searchServiceVtex($url)
     {
 
-        $result = $this->connectGet($url)->collect();
+    $result = $this->connectGet($url)->collect();
 
-        return $result->filter(function($item){
-            return $item['productId'] == "1328137";
+    return $result->filter(function($item){
+        return $item['productId'] == "1328137";
+    })->map(function($item){
 
-        })
-        ->values();
+        $item['productId'] = (int) $item['productId'];
+
+        return [
+            'productId' => $item['productId'],
+            'productName' => $item['productName'],
+            'brand' => $item['brand']
+        ];
+    })
+    ->values();
 
     }
 
