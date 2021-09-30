@@ -44,14 +44,9 @@ trait ProdutosTrait
 
     public function ListagemDeProdutosTrait(object $request) : array
     {
-<<<<<<< HEAD
-        if (isset($request->filter_produtoNome)) {
-            $list = Produtos::where(['produtoNome' => $request->filter_produtoNome])->get();
-=======
         $expiresAt = now()->addMinutes(1);
         if(isset($request->filter_produtoNome)){
             $list = Produtos::where(['produtoName' => $request->filter_produtoNome])->get();
->>>>>>> ecaa66441a0501b1b8abcde95c46489d32e5abc6
         } else {
              //$this->setCacheTrait($value, "listagem-produtos");
 
@@ -94,11 +89,7 @@ trait ProdutosTrait
             'produtoNome' => 'required|string|max:120',
             'brand' => 'required|string',
         ]);
-<<<<<<< HEAD
-        if ($validator->fails()) {
-=======
         if($validator->fails()){
->>>>>>> ecaa66441a0501b1b8abcde95c46489d32e5abc6
             return [
                 'status' => 406,
                 'data' => $validator->errors()
@@ -109,12 +100,7 @@ trait ProdutosTrait
             $produtoId->produtoNome = $request->produtoNome;
             $produtoId->brand = $request->brand;
             $produtoId->save();
-<<<<<<< HEAD
-
-        } catch (\Exception $e) {
-=======
         }catch(\Exception $e) {
->>>>>>> ecaa66441a0501b1b8abcde95c46489d32e5abc6
             return [
                 'status' => 500,
                 'msg' => $e->getMessage(),
