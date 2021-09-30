@@ -11,6 +11,7 @@ use App\Http\Resources\ListagemPessoasResource;
 trait PessoasTrait
 {
 
+
     use RedisService;
 
     public function CreatePessoasTrait(object $request) : array
@@ -56,8 +57,9 @@ trait PessoasTrait
 
         $expiresAt = now()->addMinutes(1);
 
-        if(isset($request->filter_age)){
-            $list = Pessoas::where(['idade' => $request->filter_age])->get();
+        if(isset($request->filter_id)){
+            $list = Pessoas::where(['idade' => $request->filter_id])->get();
+
         } else {
 
             // $this->setCacheTrait($value, "_pessoas_listagem");
@@ -75,11 +77,7 @@ trait PessoasTrait
                 $list = json_decode($cache, true);
             }
 
-
-
-
-
-            // $list = Pessoas::all();
+            $list = Pessoas::all();
         }
 
         return [

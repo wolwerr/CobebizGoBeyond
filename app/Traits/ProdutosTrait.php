@@ -53,10 +53,29 @@ trait ProdutosTrait
     public function ListagemDeProdutosTrait(object $request) : array
     {
 
+        $expiresAt = now()->addMinutes(1);
+
         if(isset($request->filter_produtoNome)){
-            $list = Produtos::where(['produtoNome' => $request->filter_produtoNome])->get();
+            $list = Produtos::where(['produtoName' => $request->filter_produtoNome])->get();
+
         } else {
-            $list = Produtos::all();
+
+             //$this->setCacheTrait($value, "listagem-produtos");
+
+            $cache = $this->getCacheById("produtoNome");
+
+            if(is_array($cache)){
+                if($cache['status'] == 404){
+                    $list = Produtos::all()->toArray();
+                    $this->setCacheTrait(json_encode($list), "produtoNome", $expiresAt);
+                } else {
+                    $list = $cache;
+                }
+            } else {
+                $list = json_decode($cache, true);
+            }
+
+            // $list = Produtos::all();
         }
 
         return [
