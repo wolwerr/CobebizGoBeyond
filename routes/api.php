@@ -57,7 +57,7 @@ Route::get('listagem-produtos', 'ChilliBeansAPIController@listagemDeProdutos');
 
 //? Rota para listagem de produtos por id.
 Route::get('listagem-produtos/{produtoId}',
-            'ChilliBeansAPIControllerr@listagemDeProdutosById');
+            'ChilliBeansAPIController@listagemDeProdutosById');
 
 //? Rota para atualizar.
 Route::put('atualizar-produto/{produtoId}',
