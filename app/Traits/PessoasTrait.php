@@ -77,7 +77,7 @@ trait PessoasTrait
                 $list = json_decode($cache, true);
             }
 
-            $list = Pessoas::all();
+           // $list = Pessoas::all();
         }
 
         return [
