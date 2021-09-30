@@ -4,10 +4,16 @@ namespace App\Traits;
 
 use App\Http\Resources\ListagemPessoasResource;
 use App\Models\Pessoas;
+use App\Services\RedisService;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 trait PessoasTrait
 {
+
+
+    use RedisService;
+
     public function CreatePessoasTrait(object $request) : array
     {
 
@@ -49,10 +55,29 @@ trait PessoasTrait
     public function ListagemDePessoasTrait(object $request) : array
     {
 
-        if(isset($request->filter_age)){
-            $list = Pessoas::where(['idade' => $request->filter_age])->get();
+        $expiresAt = now()->addMinutes(1);
+
+        if(isset($request->filter_id)){
+            $list = Pessoas::where(['idade' => $request->filter_id])->get();
+
         } else {
-            $list = Pessoas::all();
+
+            // $this->setCacheTrait($value, "_pessoas_listagem");
+
+            $cache = $this->getCacheById("_pessoas_listagem");
+
+            if(is_array($cache)){
+                if($cache['status'] === 404){
+                    $list = Pessoas::all()->toArray();
+                    $this->setCacheTrait(json_encode($list), "_pessoas_listagem", $expiresAt);
+                } else {
+                    $list = $cache;
+                }
+            } else {
+                $list = json_decode($cache, true);
+            }
+
+           // $list = Pessoas::all();
         }
 
         return [

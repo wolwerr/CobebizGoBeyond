@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\VtexSearchService;
+use Illuminate\Http\Request;
 
 class ServicesAPIVtexController extends Controller
 {

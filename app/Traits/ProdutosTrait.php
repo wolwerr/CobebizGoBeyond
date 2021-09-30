@@ -5,9 +5,13 @@ namespace App\Traits;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\ListagemProdutosResource;
 use App\Models\Produtos;
+use App\Services\RedisService;
 
 trait ProdutosTrait
 {
+
+    use RedisService;
+
     public function CreateProdutosTrait(object $request) : array
     {
         $validator = Validator::make($request->all(), [
@@ -40,10 +44,29 @@ trait ProdutosTrait
 
     public function ListagemDeProdutosTrait(object $request) : array
     {
+<<<<<<< HEAD
         if (isset($request->filter_produtoNome)) {
             $list = Produtos::where(['produtoNome' => $request->filter_produtoNome])->get();
+=======
+        $expiresAt = now()->addMinutes(1);
+        if(isset($request->filter_produtoNome)){
+            $list = Produtos::where(['produtoName' => $request->filter_produtoNome])->get();
+>>>>>>> ecaa66441a0501b1b8abcde95c46489d32e5abc6
         } else {
-            $list = Produtos::all();
+             //$this->setCacheTrait($value, "listagem-produtos");
+
+            $cache = $this->getCacheById("produtoNome");
+            if(is_array($cache)){
+                if($cache['status'] === 404){
+                    $list = Produtos::all()->toArray();
+                    $this->setCacheTrait(json_encode($list), "produtoNome", $expiresAt);
+                } else {
+                    $list = $cache;
+                }
+            } else {
+                $list = json_decode($cache, true);
+            }
+                $list = Produtos::all();
         }
 
         return [
@@ -71,7 +94,11 @@ trait ProdutosTrait
             'produtoNome' => 'required|string|max:120',
             'brand' => 'required|string',
         ]);
+<<<<<<< HEAD
         if ($validator->fails()) {
+=======
+        if($validator->fails()){
+>>>>>>> ecaa66441a0501b1b8abcde95c46489d32e5abc6
             return [
                 'status' => 406,
                 'data' => $validator->errors()
@@ -82,8 +109,12 @@ trait ProdutosTrait
             $produtoId->produtoNome = $request->produtoNome;
             $produtoId->brand = $request->brand;
             $produtoId->save();
+<<<<<<< HEAD
 
         } catch (\Exception $e) {
+=======
+        }catch(\Exception $e) {
+>>>>>>> ecaa66441a0501b1b8abcde95c46489d32e5abc6
             return [
                 'status' => 500,
                 'msg' => $e->getMessage(),
@@ -109,7 +140,9 @@ trait ProdutosTrait
             ];
         }
         $produtoId = Produtos::where('produtoId', $produtoId)->first();
-        if (is_null($produtoId)) {
+
+        if(is_null($produtoId)) {
+
             return [
                 'status' => 200,
                 'msg' => 'registro já apagado.'
