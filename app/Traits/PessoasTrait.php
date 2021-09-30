@@ -67,7 +67,7 @@ trait PessoasTrait
             $cache = $this->getCacheById("_pessoas_listagem");
 
             if(is_array($cache)){
-                if($cache['status'] == 404){
+                if($cache['status'] === 404){
                     $list = Pessoas::all()->toArray();
                     $this->setCacheTrait(json_encode($list), "_pessoas_listagem", $expiresAt);
                 } else {

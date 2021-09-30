@@ -20,10 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //? Rota de Teste retornando um array.
-Route::get('/message','APIController@showMessage')->middleware('iphone');
+Route::get('/message', 'APIController@showMessage')->middleware('iphone');
 
 //? Rota de teste action.
-Route::post('/action','APIController@showAction');
+Route::post('/action', 'APIController@showAction');
 
 //? Rotas para o controller Pessoas.
 
@@ -33,13 +33,13 @@ Route::get('listagem-pessoa', 'APIPessoasController@listagemDePessoas')->middlew
 Route::get('listagem-pessoa/{id}', 'APIPessoasController@listagemDePessoasById')->middleware('authenticate-api');
 
 //? Rota para cadastrar.
-Route::post('cadastro-pessoa','APIPessoasController@cadastraPessoa');
+Route::post('cadastro-pessoa', 'APIPessoasController@cadastraPessoa');
 
 //? Rota para atualizar.
-Route::put('atualizar-pessoa/{id}','APIPessoasController@atualizarPessoa');
+Route::put('atualizar-pessoa/{id}', 'APIPessoasController@atualizarPessoa');
 
 //? Rota para deletar.
-Route::delete('deletar-pessoa/{id}','APIPessoasController@deletePessoa');
+Route::delete('deletar-pessoa/{id}', 'APIPessoasController@deletePessoa');
 
 
 //? Rotas Chilli Beans
@@ -47,7 +47,7 @@ Route::get('chillibeans', 'ChilliBeansAPIController@listagemSearchVtex');
 Route::post('gravarDadosApi', 'ServicesAPIVtexController@gravarDadosApi');
 
 //? Rota para cadastrar.
-Route::post('cadastrar-produtos','ChilliBeansAPIController@cadastraProdutos');
+Route::post('cadastrar-produtos', 'ChilliBeansAPIController@cadastraProdutos');
 
 //? ListagemProdutos
 Route::get('listagem-produtos', 'ChilliBeansAPIController@listagemDeProdutos');
